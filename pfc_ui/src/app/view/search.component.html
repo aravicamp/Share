@@ -1,0 +1,14 @@
+<div class="sidebarText">
+	Search <br>
+</div>
+<div class="sidebarText">
+	<p>
+            {{label}}: 
+            <input #airportCode
+                   type="text" class="sidebarInput" size="5" maxlength="3"
+                   value="{{initialValue}}" />
+                   <br>
+                   <br>
+          <a href="#" class="btn btn-default" id="searchLink" (click)="searchPFC(airportCode.value);">Search</a>
+        </p>
+</div>

@@ -1,0 +1,25 @@
+   <h1>{{title}}</h1>
+    
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <app-search label="Airport"   initialValue=""  (searchEvent)='onSearchEvent($event)'></app-search>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Result</h1>
+                        <app-display [displayResponse]="response"></app-display>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->

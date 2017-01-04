@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<Grid>
+  <!-- Start Confirguration Settings -->
+  <!-- Configuration is not saved to cookies -->
+  <Cfg Code="GTACFEHEBNXADB"/>
+  <Cfg Style="Query"/>
+
+
+  <Cfg SuppressMessage='2'/>
+  <!-- Grid is sorted according to column A by default -->
+  <Cfg FilterEmpty='2'/>
+  <!-- Grid will always fill its main tag -->
+  <Cfg MaxHeight="1" ConstHeight='0' />
+
+  <!-- User can resize grid main tag -->
+  <Cfg ResizingMain='0'/>
+  <!-- Export setting, all rows will be exported expanded and will be used Excel outline -->
+  <Cfg ExportType='Expanded,Outline'/>
+
+  <!-- Let a user to choose which columns will be printed and shows print options -->
+  <Cfg PrintCols='2'/>
+  <!-- Let a user to choose which columns will be exported and shows export options -->
+  <Cfg ExportCols='2'/>
+  <!-- Let a user to choose which columns will be printed to PDF and shows print PDF options -->
+  <Cfg ExportPDFCols='2'/>
+
+
+  <!--Restricts the user from editing any of the cells within the Grid (with exception of the search/filter sections) -->
+  <Cfg Editing='1'/>
+  <!--Restricts the user from moving columns within the Grid -->
+  <Cfg ColMoving='1' />
+  <!-- Shows dragged object under mouse cursor -->
+  <Cfg Dragging='0'/>
+
+
+  <Cfg  Selecting="1" />
+
+  <Cfg NoPager ="1"/>
+
+  <Cfg Paging="2" AllPages="0" PageLength="50"/>
+
+
+  <!-- open detail on double click of row -->
+  <Cfg  SafeCSS='1' SuppressCfg='1'/>
+
+  <Cfg Sort="sequenceNumber,status" AutoSort="1"/>
+
+  <Cfg Selecting='1' SelectingCells='0'/>
+
+  <Panel CanHide="0" Select="1" Delete="0"/>
+
+
+
+
+
+  <!-- Column definition -->
+
+  <Cols>
+
+
+    <C Name="carrierCode" Width='70' Type='Text' CanFilter='2' CanSearch='0'/>
+    <C Name='status'  Width='100' Type='Text' CanFilter='2' CanSearch='0'/> <!-- Status -->
+    <C Name='sequenceNumber'  Width='90' Type='Int' CanFilter='2' CanSearch='0'/>
+
+    <C Name='effectiveDate' 	  Width='90' Type='Date' CanFilter='2' CanSearch='0' AutoCalendar='1' Format='ddMMMyy'/>
+    <C Name='discontinueDate'  Width='90' Type='Date'  CanFilter='2' CanSearch='0' AutoCalendar='1' Format='ddMMMyy'/>
+  </Cols>
+
+
+
+  <!-- Column captions -->
+  <Head>
+
+    <Header Spanned='1'
+            carrierCode="" carrierCodeAlign="Center" SortIcons="0"
+            status="" statusAlign='Center' SortIcons='0'
+            sequenceNumber="" sequenceNumberAlign='Center'
+            effectiveDate="Travel" effectiveDateSpan='2' effectiveDateAlign="Center"
+    />
+    <Header id='Header' carrierCode="carrier" status="status"  sequenceNumber='Sequence'  effectiveDate='EFF' discontinueDate='DISC'
+ 
+ 	/>
+  </Head>
+  <!-- Summary footer rows -->
+  <Solid>
+    <Toolbar1 id="PAGER" Cells="NAV" Space="4" NAVType="Pager" />
+  </Solid>
+  <Solid>
+  <Toolbar id="topToolbar" Space="0"  Link='0' Cells='grid_name,active_batch,EMPTY_CELL1,rowActions,EMPTY_CELL2,columns_config,EMPTY_CELL3,view_columns,EMPTY_CELL4,Save_Rec1,EMPTY_CELL5,Reload'
+           grid_nameType='Html' grid_name='&nbsp;&nbsp;SequenceList' grid_nameAlign='right'
+           active_batchType='Html' active_batch='&nbsp;&nbsp;&nbsp;No Active Batch' active_batchAlign='right'
+           EMPTY_CELL1Type='Html' EMPTY_CELL1='&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'
+           rowActionsType='Html' rowActions="&lt;a href='javascript:showRowActionsMenu();'&gt;Row Actions&lt;a&gt;" rowActionsAlign='left'
+           EMPTY_CELL2Type='Html' EMPTY_CELL2='&nbsp;&nbsp;&nbsp;&nbsp;'
+           columns_configType='Html' columns_config="&lt;a href='javascript:ShowColumnsMenu();'&gt;Configure Columns&lt;a&gt;" columns_configAlign='left'
+           EMPTY_CELL3Type='Html' EMPTY_CELL3='&nbsp;&nbsp;&nbsp;&nbsp;'
+           view_columnsType='Html' view_columns="&lt;a href='viewColumns();'&gt;View All Columns&lt;a&gt;" view_columnsAlign='left'
+           EMPTY_CELL4Type='Html' EMPTY_CELL4='&nbsp;&nbsp;&nbsp;&nbsp;'
+           Save_Rec1Type="Html" Save_Rec1="&lt;input id='saveRec1' disabled='true' name='Save' type='button' class='goButtonRules' value='Save' onclick='javascript:SaveData();'/&gt;"
+           EMPTY_CELL5Type='Html' EMPTY_CELL5='&nbsp;&nbsp;&nbsp;&nbsp;'
+
+  />
+  </Solid>
+
+  <!-- Bottom toolbar formula -->
+  <Toolbar id="bottomToolbar" Formula='count("1")+" / "+count(1)+""' Indent='0' Outdent='0'
+            Reload='0' Print='0' Repaint='0'  Add='0' Columns='0' AddChild='0'   Sort='0'   Undo='0'   Redo='0'   Calc='0'  Cfg='0'   Styles='0'   Help='0'   Debug='0'/>
+</Grid>
