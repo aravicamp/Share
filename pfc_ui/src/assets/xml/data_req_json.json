@@ -1,0 +1,48 @@
+{
+    "Body": [
+        [
+          {
+            "carrierCode": "BA",
+            "status": "Complete",
+            "sequenceNumber": "5",
+            "effectiveDate": "06Jan99"
+          },
+          {
+            "carrierCode": "AA",
+            "status": "Incomplete",
+            "sequenceNumber": "8",
+            "effectiveDate": "06Jan99"
+          },
+          {
+            "carrierCode": "AA",
+            "status": "Incomplete",
+            "sequenceNumber": "11",
+            "effectiveDate": "06Jan99"
+          },
+          {
+            "carrierCode": "BA",
+            "status": "Complete",
+            "sequenceNumber": "14",
+            "effectiveDate": "06Jan99"
+          },
+          {
+            "carrierCode": "AA",
+            "status": "Incomplete",
+            "sequenceNumber": "17",
+            "effectiveDate": "06Jan99"
+          },
+          {
+            "carrierCode": "AA",
+            "status": "Incomplete",
+            "sequenceNumber": "20",
+            "effectiveDate": "06Jan99"
+          },
+          {
+            "carrierCode": "BA",
+            "status": "Complete",
+            "sequenceNumber": "23",
+            "effectiveDate": "06Jan99"
+          }
+        ]
+    ]
+}

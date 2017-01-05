@@ -1,7 +1,17 @@
 interface TreeGrid {
   (option: TreeGridOption, elementId: string): Table;
-  ClearBody()
-  Reload(option: TreeGridOption, elementId: string, confirm: boolean): Table;
+  Source: Source;
+  ClearBody();
+  AddDataFromServer(data:String);
+  ReloadBody(callback:function);
+}
+
+interface Source{
+  Data:Data;
+}
+
+interface Reload {
+  (option: TreeGridOption, elementId: string): Table;
 }
 
 interface TreeGridOption {
@@ -11,6 +21,7 @@ interface TreeGridOption {
 }
 
 interface Data {
+  //Url: string;
   Data: TreeGridData;
 }
 
@@ -19,7 +30,8 @@ interface TreeGridData {
 }
 
 interface Layout {
-  Data: TreeGridLayout;
+  Url: string;
+  //Data: TreeGridLayout;
 }
 
 interface TreeGridLayout {
@@ -48,3 +60,4 @@ interface Table {
 }
 
 declare var TreeGrid: TreeGrid;
+declare var Reload: TreeGrid;

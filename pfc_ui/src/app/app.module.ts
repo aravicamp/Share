@@ -11,7 +11,6 @@ import { SearchService } from './service/search.service';
 
 import { EJSGridDirective } from '../assets/framework/grid/ejs.grid.directive';
 import { TreeGridService } from '../assets/framework/grid/tree-grid.service';
-import { TableLayoutService } from '../assets/framework/grid/table-layout.service';
 import { EjsgridComponent } from './component/ejsgrid/ejsgrid.component';
 
 @NgModule({
@@ -30,7 +29,6 @@ import { EjsgridComponent } from './component/ejsgrid/ejsgrid.component';
     providers: [
       SearchService,
       TreeGridService,
-      TableLayoutService,
     ],
     bootstrap:    [
         AppComponent

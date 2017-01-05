@@ -2,7 +2,7 @@
 <Grid>
   <!-- Start Confirguration Settings -->
   <!-- Configuration is not saved to cookies -->
-  <Cfg Code="GTACFEHEBNXADB"/>
+  <Cfg Code="GTACFEHEBNXADB" id="Json" MainCol="carrier"/>
   <Cfg Style="Query"/>
 
 
@@ -47,21 +47,14 @@
 
   <Cfg Selecting='1' SelectingCells='0'/>
 
-  <Panel CanHide="0" Select="1" Delete="0"/>
-
-
-
-
+  <Panel Visible='0'/>
 
   <!-- Column definition -->
 
   <Cols>
-
-
     <C Name="carrierCode" Width='70' Type='Text' CanFilter='2' CanSearch='0'/>
     <C Name='status'  Width='100' Type='Text' CanFilter='2' CanSearch='0'/> <!-- Status -->
     <C Name='sequenceNumber'  Width='90' Type='Int' CanFilter='2' CanSearch='0'/>
-
     <C Name='effectiveDate' 	  Width='90' Type='Date' CanFilter='2' CanSearch='0' AutoCalendar='1' Format='ddMMMyy'/>
     <C Name='discontinueDate'  Width='90' Type='Date'  CanFilter='2' CanSearch='0' AutoCalendar='1' Format='ddMMMyy'/>
   </Cols>
@@ -77,7 +70,7 @@
             sequenceNumber="" sequenceNumberAlign='Center'
             effectiveDate="Travel" effectiveDateSpan='2' effectiveDateAlign="Center"
     />
-    <Header id='Header' carrierCode="carrier" status="status"  sequenceNumber='Sequence'  effectiveDate='EFF' discontinueDate='DISC'
+    <Header id='Header' carrierCode="Carrier" status="Status"  sequenceNumber='Sequence'  effectiveDate='EFF' discontinueDate='DISC'
  
  	/>
   </Head>
@@ -85,7 +78,7 @@
   <Solid>
     <Toolbar1 id="PAGER" Cells="NAV" Space="4" NAVType="Pager" />
   </Solid>
-  <Solid>
+  <!-- <Solid>
   <Toolbar id="topToolbar" Space="0"  Link='0' Cells='grid_name,active_batch,EMPTY_CELL1,rowActions,EMPTY_CELL2,columns_config,EMPTY_CELL3,view_columns,EMPTY_CELL4,Save_Rec1,EMPTY_CELL5,Reload'
            grid_nameType='Html' grid_name='&nbsp;&nbsp;SequenceList' grid_nameAlign='right'
            active_batchType='Html' active_batch='&nbsp;&nbsp;&nbsp;No Active Batch' active_batchAlign='right'
@@ -111,9 +104,9 @@
            EMPTY_CELL5Type='Html' EMPTY_CELL5='&nbsp;&nbsp;&nbsp;&nbsp;'
 
   />
-  </Solid>
+  </Solid> -->
 
   <!-- Bottom toolbar formula -->
   <Toolbar id="bottomToolbar" Formula='count("1")+" / "+count(1)+""' Indent='0' Outdent='0'
-            Reload='0' Print='0' Repaint='0'  Add='0' Columns='0' AddChild='0'   Sort='0'   Undo='0'   Redo='0'   Calc='0'  Cfg='0'   Styles='0'   Help='0'   Debug='0'/>
+            Reload='0' Print='0' Repaint='0'  Add='0' Columns='0' AddChild='0'   Sort='0'   Undo='0'   Redo='0'   Calc='0'  Cfg='0'   Styles='0'   Help='0'   Debug='1'/>
 </Grid>

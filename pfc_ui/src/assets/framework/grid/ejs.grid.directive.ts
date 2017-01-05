@@ -1,7 +1,6 @@
 import { Directive, Input, Output, OnInit, ElementRef } from '@angular/core';
 import { TreeGridService } from './tree-grid.service';
 import { GridConfig } from './ejs.grid.config';
-import { TableLayoutService } from './table-layout.service';
 
 
 declare var Grids: any;
@@ -28,7 +27,6 @@ export class EJSGridDirective implements OnInit {
     if (this.ejsGridConfig === undefined) {
       this.ejsGridConfig = new GridConfig();
       this.ejsGridConfig.gridId = 'myGrid';
-      this.ejsGridConfig.gridLayoutUrl = new TableLayoutService();
     }
 
     if (this.ejsGridData === undefined) {

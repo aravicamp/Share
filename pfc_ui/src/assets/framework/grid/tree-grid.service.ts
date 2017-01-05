@@ -2,14 +2,17 @@ import { Injectable } from '@angular/core';
 import * as _ from 'lodash';
 
 interface IOptions {
-  data: any[];
+  data: any;
   layout: any;
 }
 
 @Injectable()
 export class TreeGridService {
 
-  private _prepareTableData(data: any): any {
+  _prepareTableData(data: any): any {
+    if(data === undefined){
+      data = [{}];
+    }
     let returnData: any = null;
     returnData = {
       Body: [data]
@@ -23,9 +26,11 @@ export class TreeGridService {
     let table = TreeGrid({
       Data: {
         Data: this._prepareTableData(_.cloneDeep(options.data))
+        //Url: _.cloneDeep(options.data)
       },
       Layout: {
-        Data: _.cloneDeep(options.layout)
+        //Data: _.cloneDeep(options.layout)
+        Url: _.cloneDeep(options.layout)
       },
       Upload: {
         Format: 'JSON',
@@ -36,5 +41,5 @@ export class TreeGridService {
 
     return table;
   }
-  
+
 }

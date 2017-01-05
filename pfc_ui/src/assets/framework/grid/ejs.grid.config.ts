@@ -1,5 +1,3 @@
-import { TableLayoutService } from './table-layout.service';
-
 export class GridConfig {
   gridId: string;
   gridData: string;
