@@ -9,27 +9,20 @@ interface IOptions {
 @Injectable()
 export class TreeGridService {
 
-  _prepareTableData(data: any): any {
-    if(data === undefined){
-      data = [{}];
-    }
-    let returnData: any = null;
-    returnData = {
+  _prepareTableData(data: Object): TreeGridData {
+    let returnData: TreeGridData = {
       Body: [data]
     };
     return returnData;
-
   }
 
-  create(elementId: string, options: IOptions): any {
+  create(elementId: string, options: IOptions): TGrid {
 
-    let table = TreeGrid({
+    let table: TGrid = TreeGrid({
       Data: {
         Data: this._prepareTableData(_.cloneDeep(options.data))
-        //Url: _.cloneDeep(options.data)
       },
       Layout: {
-        //Data: _.cloneDeep(options.layout)
         Url: _.cloneDeep(options.layout)
       },
       Upload: {

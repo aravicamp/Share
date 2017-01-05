@@ -1,3 +1,3 @@
 export class Response {
-    public data: string;
+    public data: any;
 }

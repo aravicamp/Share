@@ -3,32 +3,28 @@ import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { PFC } from '../model/pfc';
+import { ServiceConstructor } from './service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
 
 @Injectable()
-export class SearchService {
-  private url = 'http://localhost:8080/pfc/';
-  private http: Http;
-  constructor(http: Http) { this.http = http; }
+export class SearchService extends ServiceConstructor {
+  constructor(protected http: Http) {
+    super('/pfc', http);
+  }
 
   retriveData(airport: string): Observable<PFC[]> {
     console.log('airport - ' + airport);
-    let headers = new Headers();
-    headers.append('Access-Control-Allow-Origin', '*');
-    headers.append('Access-Control-Allow-Methods', 'GET, POST, PATCH, PUT, DELETE, OPTIONS');
-    headers.append('Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token');
-    return this.http.get(this.url + airport, new RequestOptions({ headers: headers }))
+    return this.get(airport)
       .map(this.extractData)
       .catch(this.handleError);
   }
 
   private extractData(res: Response) {
-    let body = res.json();
-    console.log('search response - ' + body);
-    return <PFC[]>body.data || {};
+    console.log('search response - ' + res);
+    return <PFC[]>res['data'] || {};
   }
   private handleError(error: any) {
     let errMsg = (error.message) ? error.message :

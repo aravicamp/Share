@@ -3,15 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './component/app.component';
-import { SearchComponent } from './component/search.component';
-import { DisplayComponent } from './component/display.component';
+import { AppComponent } from './component/root/app.component';
+import { SearchComponent } from './component/search/search.component';
+import { DisplayComponent } from './component/display/display.component';
 
 import { SearchService } from './service/search.service';
+import { SaveService } from './service/save.service';
 
-import { EJSGridDirective } from '../assets/framework/grid/ejs.grid.directive';
 import { TreeGridService } from '../assets/framework/grid/tree-grid.service';
-import { EjsgridComponent } from './component/ejsgrid/ejsgrid.component';
+import { EjsGridComponent } from '../assets/framework/grid/ejsgrid.component';
 
 @NgModule({
     imports:      [
@@ -23,12 +23,12 @@ import { EjsgridComponent } from './component/ejsgrid/ejsgrid.component';
         AppComponent,
         SearchComponent,
         DisplayComponent,
-        EJSGridDirective,
-        EjsgridComponent
+        EjsGridComponent
     ],
     providers: [
       SearchService,
       TreeGridService,
+      SaveService,
     ],
     bootstrap:    [
         AppComponent

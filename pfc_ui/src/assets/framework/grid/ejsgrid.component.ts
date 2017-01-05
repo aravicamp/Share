@@ -1,16 +1,16 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { GridConfig } from '../../../assets/framework/grid/ejs.grid.config';
-import { TreeGridService } from '../../../assets/framework/grid/tree-grid.service';
+import { GridConfig } from './ejs.grid.config';
+import { TreeGridService } from './tree-grid.service';
 
 @Component({
   selector: 'app-ejsgrid',
   templateUrl: './ejsgrid.component.html'
 })
-export class EjsgridComponent implements OnInit {
+export class EjsGridComponent implements OnInit {
   @Input() ejsGridConfig: GridConfig;
   @Input() ejsGridData: any;
 
-  @Output() gridEmit: EventEmitter<TreeGrid> = new EventEmitter();
+  @Output() gridEmit: EventEmitter<TGrid> = new EventEmitter();
   constructor(private treeGridService: TreeGridService) { }
 
   ngOnInit() {
@@ -18,10 +18,8 @@ export class EjsgridComponent implements OnInit {
   }
 
   private buildGrid() {
-    //this.ejsGridData = '/assets/xml/data.xml';
-    let table: TreeGrid = this.treeGridService.create('sampleGrid', {
+    let table: TGrid = this.treeGridService.create(this.ejsGridConfig.gridId, {
       data: this.ejsGridData,
-      //layout: this.ejsGridConfig.gridLayoutUrl.getData()
       layout: this.ejsGridConfig.gridLayoutUrl
     });
     this.gridEmit.emit(table);

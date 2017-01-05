@@ -1,0 +1,10 @@
+<div id="displayComponent" style="width:75%;height:50%">
+	
+	<div> <h1>Result</h1> <a href="#" class="btn btn-default" id="saveLink" (click)="saveGrid()">Save</a></div>
+	<div id="myGrid">
+		<app-ejsgrid 
+		[ejsGridConfig]='gridConfig'
+		[ejsGridData]='displayResponse.data'
+		(gridEmit)=onGridRendered($event)></app-ejsgrid>
+	</div>
+</div>
