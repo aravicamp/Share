@@ -1,7 +1,9 @@
 package net.atpco.pfc.ui.service;
 
 import lombok.Getter;
+import lombok.ToString;
 
+@ToString
 public class PFCModel {
 	@Getter
 	private String carrierCode;
@@ -25,5 +27,7 @@ public class PFCModel {
 		this.effectiveDate = effectiveDate;
 		this.discontinueDate = discontinueDate;
 	}
+	
+	
 	
 }
