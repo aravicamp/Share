@@ -1,6 +1,10 @@
 <div id="displayComponent" style="width:75%;height:50%">
 	
-	<div> <h1>Result</h1> <a href="#" class="btn btn-default" id="saveLink" (click)="saveGrid()">Save</a></div>
+	<div> <h1>Result</h1></div>
+	<div>
+		<a href="#" class="btn btn-default" id="saveLink" (click)="saveGridOneByOne()">Save 1 by 1</a>
+		<a href="#" class="btn btn-default" id="saveLink" (click)="saveGridBulk()">Save Bulk</a>
+	</div>
 	<div id="myGrid">
 		<app-ejsgrid 
 		[ejsGridConfig]='gridConfig'

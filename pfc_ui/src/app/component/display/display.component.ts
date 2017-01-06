@@ -4,6 +4,7 @@ import { GridConfig } from '../../../assets/framework/grid/ejs.grid.config';
 import { TreeGridService } from '../../../assets/framework/grid/tree-grid.service';
 import { SaveService } from '../../service/save.service';
 import { Observable } from 'rxjs/Observable';
+import { PFC } from '../../model/pfc';
 import * as _ from 'lodash';
 
 @Component({
@@ -29,15 +30,29 @@ export class DisplayComponent implements OnInit {
 
   onGridRendered(grid: TGrid) {
     this.ejsGrid = grid;
+    Grids.OnRightClick = function(G, row, col, x, y) {
+      let myGridMenu: string[] = ['Insert Before', 'Insert After', 'Delete', 'Ignore Changes'];
+      Grids[0].ShowMenu(
+        row, col, myGridMenu, null,
+        function func(index: any, G: any, row: any, col: any, UserData: any) {
+          alert('User clicked to ' + myGridMenu[index]);
+        }
+        , 0, '', x, y);
+      return true;
+    };
   }
 
-  private saveGrid(): void {
+  private saveGridBulk(): void {
+
+  }
+
+  private saveGridOneByOne(): void {
+    //this.ejsGrid.Save();
     let changes = JSON.parse(this.ejsGrid.GetChanges()).Changes;
     let splitted = this.splitChangesIntoGroups(changes);
     let removes = splitted.removes;
     let updates = splitted.updates;
     let promises = this.uploadChanges.call(this, updates, removes);
-
     // if no changes, return
     if (!promises.length) {
       return;
@@ -66,14 +81,16 @@ export class DisplayComponent implements OnInit {
 
   private splitChangesIntoGroups(changes: any) {
     let updates = [], removes = [];
-
+    let self = this;
     _.forEach(changes, function(change: any) {
       if (change.Deleted) {
         removes.push(change.id);
         return;
       }
-
-      let update: any = _.assign({}, change);
+      let row: TRow = self.ejsGrid.GetRowById(change.id);
+      let pfc: PFC = new PFC();
+      pfc.populateData(row);
+      let update: any = _.assign({}, pfc);
       delete update.Changed;
       updates.push(update);
     });

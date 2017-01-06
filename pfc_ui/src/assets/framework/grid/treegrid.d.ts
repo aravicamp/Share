@@ -253,7 +253,7 @@ interface TGrid {
     GetPrintable(func: Function): string;
     GetResourceErrors(res: string, type: number): any[];
     GetResourceUsage(name: string, type: number, consume: number, row: TRow, opt: number, def: string, col: string): string;
-    GetRowById(id: string, attr: string, nofixed: boolean): TRow;
+    GetRowById(id: string, attr?: string, nofixed?: boolean): TRow;
     GetRowByIndex(index: any, type: boolean): TRow;
     GetRowHeight(row: TRow): number;
     GetRowIndex(row: TRow, type: boolean, defaultValue: any): any;
@@ -338,7 +338,7 @@ interface TGrid {
     ResetChecked(row: TRow, col: string): void;
     ResizeRow(row: TRow, height: number): void;
     RoundGanttDate(date: number, round: number, base?: number, col?: string, units?: string, row?: TRow): number;
-    Save(event: Event): void;
+    Save(event?: Event): void;
     SaveExport(data: string, source: Object): void;
     ScrollIntoView(row: TRow, col: string, pagepos?: number): void;
     ScrollToDate(date: Date, align: string): void;

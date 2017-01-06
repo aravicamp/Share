@@ -17,7 +17,6 @@ export class TreeGridService {
   }
 
   create(elementId: string, options: IOptions): TGrid {
-
     let table: TGrid = TreeGrid({
       Data: {
         Data: this._prepareTableData(_.cloneDeep(options.data))
@@ -26,12 +25,13 @@ export class TreeGridService {
         Url: _.cloneDeep(options.layout)
       },
       Upload: {
+        Flags: 'AllCols',
         Format: 'JSON',
         Xml: 2,
-        Type: 'body'
-      },
+        Type: 'body',
+        Debug: 'Out',
+      }
     }, elementId);
-
     return table;
   }
 

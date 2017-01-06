@@ -41,7 +41,7 @@ public class PfcUiService {
 					throws Exception {
 		final Map<String,Object> returnData = new HashMap<String,Object>();
 		returnData.put("message", "success");
-		System.out.println("Got a request - OPTION - "+airportCode);
+		System.out.println("Got a request - OPTION - "+airportCode+ " - "+pfcData);
 		return returnData;
 	}
 	
@@ -57,8 +57,8 @@ public class PfcUiService {
 		return returnData;
 	}
 	
-	@RequestMapping(value ="/",
-			method = RequestMethod.POST)
+	@RequestMapping(value ="/saveAll",
+			method = RequestMethod.POST, consumes="application/json" )
 	@ResponseBody
 	public Map<String, Object> saveAllPFC(
 			@RequestBody final List<PFCModel> pfcData) 
@@ -72,11 +72,11 @@ public class PfcUiService {
 	private List<PFCModel> preparePFCModel(String airportCode){
 		List<PFCModel> models = new ArrayList<>();
 		int i=1;
-		models.add(new PFCModel(airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
-		models.add(new PFCModel(airportCode,"Incomplete",i++, "01Jan16",""));
-		models.add(new PFCModel(airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
-		models.add(new PFCModel(airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
-		models.add(new PFCModel(airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
+		models.add(new PFCModel("",airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
+		models.add(new PFCModel("",airportCode,"Incomplete",i++, "01Jan16",""));
+		models.add(new PFCModel("",airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
+		models.add(new PFCModel("",airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
+		models.add(new PFCModel("",airportCode,"Incomplete",i++, "01Jan16","31Dec99"));
 		return models;
 	}
 }
