@@ -66,7 +66,7 @@
 
     <Header Spanned='1'
             carrierCode="" carrierCodeAlign="Center" SortIcons="0"
-            status="" statusAlign='Center' SortIcons='0'
+            status="" statusAlign='Center'
             sequenceNumber="" sequenceNumberAlign='Center'
             effectiveDate="Travel" effectiveDateSpan='2' effectiveDateAlign="Center"
     />

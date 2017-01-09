@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { DisplayComponent } from '../component/display.component';
+import { DisplayComponent } from '../component/display/display.component';
 
 describe('DisplayGridComponent', () => {
   let component: DisplayComponent;
